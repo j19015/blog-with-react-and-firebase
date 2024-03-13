@@ -23,5 +23,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'implicit-arrow-linebreak': 'off',
     'import/extensions': [1, 'ignorePackages'],
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-one-expression-per-line': 'off',
   },
 };
