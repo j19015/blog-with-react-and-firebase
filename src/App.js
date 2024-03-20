@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Home from './components/home.js';
 import CreatePost from './components/createPost.js';
 import Login from './components/login.js';
@@ -9,10 +9,16 @@ import Navbar from './components/navbar.js';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
-  console.log(isAuth);
+
+  useEffect(() => {
+    if (localStorage.getItem('isAuth')) {
+      setIsAuth(true);
+    }
+  }, []);
+
   return (
     <Router>
-      <Navbar />
+      <Navbar isAuth={isAuth} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/createPost" element={<CreatePost />} />
