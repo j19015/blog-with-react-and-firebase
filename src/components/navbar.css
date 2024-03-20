@@ -20,3 +20,7 @@ nav a:hover {
   color: #13202d;
   transition: all 0.3s;
 }
+
+nav a svg {
+  margin-right: 5px;
+}
