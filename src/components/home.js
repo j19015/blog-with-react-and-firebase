@@ -1,20 +1,33 @@
+import { useEffect, useState } from 'react';
 import './home.css';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 
 function Home() {
+  const [postList, setPostList] = useState([]);
+  useEffect(() => {
+    const getPosts = async () => {
+      const data = await getDocs(collection(db, 'posts'));
+      console.log(data.docs.map((doc) => ({ ...doc.data() })));
+      setPostList(data.docs.map((doc) => ({ ...doc.data() })));
+    };
+    getPosts();
+  }, []);
+
   return (
     <div className="homePage">
-      <div className="postContents">
-        <div className="postHeader">
-          <h1>タイトル</h1>
+      {postList.map((post) => (
+        <div key={post.title} className="postContents">
+          <div className="postHeader">
+            <h1>{post.title}</h1>
+          </div>
+          <div className="postTextContainer">{post.postText}</div>
+          <div className="nameAndDeleteButton">
+            <h3>{post.author.username}</h3>
+            <button type="button">削除</button>
+          </div>
         </div>
-        <div className="postTextContainer">
-          今はReactの勉強中です。頑張ってReactエンジニアとして活躍していきたいと思っています。
-        </div>
-        <div className="nameAndDeleteButton">
-          <h3>takakou</h3>
-          <button type="button">削除</button>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
