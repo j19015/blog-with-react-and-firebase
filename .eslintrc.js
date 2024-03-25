@@ -25,5 +25,7 @@ module.exports = {
     'import/extensions': [1, 'ignorePackages'],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react/prop-types': 'off',
   },
 };

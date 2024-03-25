@@ -1,6 +1,6 @@
 # アプリ概要
 
-- ReactとFirebaseを用いた認証機能付きのブログです。
+- React と Firebase を用いた認証機能付きのブログです。
 
 # 技術スタック
 
@@ -10,11 +10,12 @@
 
 # コード整形
 
-- biome
+- eslint (Guide: airbnb)
+- prettier
 
 # 起動方法
 
-必要なパッケージをinstall
+必要なパッケージを install する
 
 ```
 npm ci
@@ -34,8 +35,8 @@ npm start
   - hotfix: 緊急修正ブランチ
 
 # マージ運用ルール
-マージコミットは作るようにする
 
+マージコミットは作るようにする
 
 # コミットメッセージ
 
