@@ -33,7 +33,7 @@ function Home() {
           </div>
           <div className="postTextContainer">{post.postText}</div>
           <div className="nameAndDeleteButton">
-            <h3>{post.author.username}</h3>
+            <h3>@{post.author.username}</h3>
             {post.author.id === auth.currentUser?.uid && (
               <button type="button" onClick={() => handleDelete(post.id)}>
                 削除
